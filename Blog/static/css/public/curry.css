@@ -1,0 +1,161 @@
+.top_bottom{
+    position: fixed;
+    right: 30px;
+    bottom: 10%;
+    clear: both;
+    overflow: hidden;
+    display: none;
+}
+.top_bottom li{
+
+}
+.top_bottom li{
+    cursor: pointer;
+    padding: 12px;
+    background-color: white;
+    border: 1px solid #f1f8e9;
+    transition: all .5s;
+}
+.top_bottom li:hover{
+    background-color: #272828;
+}
+.top_bottom li:hover i{
+    background-color: #272828;
+    color: white;
+}
+.top_bottom i{
+    color: #000;
+    /*transform: rotate(180deg);*/
+}
+
+.top-memu ul {
+    padding:0;
+    margin:0;
+    font-size:0;
+  }
+  .top-memu li {
+    font-size:20px;
+    padding:5px 15px 5px 15px;
+    display: inline-block;
+    position:relative;
+    cursor: pointer;
+    transition: all 0.5s;
+  }
+  .top-memu li::before {
+    content:'';
+    display:block;
+    position:absolute;
+    width:0%;
+    bottom:0;
+    left:100%;
+    border-bottom: 2px solid #999;
+    transition: all 0.5s;
+  }
+  .top-memu li:hover::before {
+  left:0;
+    width:100%;
+  }
+  .top-memu li:hover ~ li::before {
+    left:0;
+  }
+  .top-memu{
+    position: absolute;
+    right: 2%;
+    top: 5%;
+    width: 40%;
+    height: auto;
+}
+.top-memu li{
+    float: left;
+    display: block;
+    padding: 15px;
+}
+.top-memu a{
+    font-size: 1.1rem;
+    color: #000;
+    font-weight: 600;
+    text-decoration: none;
+}
+.clear{
+  clear: both;
+  overflow: hidden;
+}
+.menu-fixed{
+  display: none;
+}
+.menu-fixed nav{
+  position: fixed;
+  top: 0;
+  z-index: 9999;
+  background-color: #f6f6f6;
+}
+.menu-fixed nav a{
+  color: #000;
+}
+
+/*清除浮动*/
+.clear{
+    clear: both;
+    overflow: hidden;
+}
+
+#avatar_file{
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    width: 80px;
+    height: 80px;
+}
+.user_formImg{
+    position: relative;
+    width: 100%;
+    height: auto;
+    text-align: center;
+}
+.user_formImg > img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+.user_formImg > #avatar_file{
+    width: 100px !important;
+    height: 100px !important;
+    border-radius: 50%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+.user_p_heard{
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/*提示*/
+.animation_box {
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(180, 178, 178, 0.5);
+    position: absolute;
+    bottom: 110%;
+    left: 0;
+    z-index: 999999;
+    cursor: pointer;
+    transition: all 1s;
+}
+.animation{
+    width: 300px;
+    height: 60px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background-color: #5ca7e9;
+    color: #fff;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    transform: translate(-50%);
+    margin-top: -100px;
+    text-align: center;
+    line-height: 60px;
+}

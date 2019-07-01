@@ -1,0 +1,130 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-image: url("../../images/p5.jpg");
+    background-size: cover;
+}
+.retrieve_password{
+    position: absolute;
+    width: 25%;
+    height: 50vh;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 2px 3px 5px #999;
+    left: 50%;
+    top: 20%;
+    transform: translate(-50%);
+}
+
+/*找回*/
+.retrieve{
+    padding: 10%;
+}
+.retrieve > span{
+    line-height: 30px;
+    color: #999999;
+    font-size: 1vw;
+    letter-spacing: 2px;
+}
+.retrieve_form{}
+.retrieve_form input:nth-of-type(1){
+    margin-top: 15px;
+}
+.retrieve_form > input,.level_two{
+    border: 1px solid #f2f2f2;
+    border-radius: 10px;
+    background-color: #f2f2f2;
+    height: 50px;
+    margin-bottom: 10px;
+    width: 100%;
+    padding-left: 15px;
+}
+#Verification_Code{
+    float: left;
+    margin-left: 1%;
+}
+.level_two{
+    line-height: 50px;
+    clear: both;
+    overflow: hidden;
+
+}
+.level_two img{
+    float: left;
+    margin-top: 15px;
+    transition: all 1s;
+    cursor: pointer;
+}
+.level_two img:hover{
+    transform: rotate(360deg);
+}
+.level_two > input{
+    float: left;
+    height: 50px;
+    border: none;
+    background-color: rgba(255,255,255,0);
+    margin-top: 0 !important;
+    width: 75%;
+}
+
+.retrieve_foot{
+    margin-top: 15px;
+}
+.HuGxNext_Eff{
+    width: auto;
+    position: relative;
+}
+.HuGxNext_Eff > a{
+    display: block;
+    width: 100%;
+    text-align: center;
+    background-color: #6ac4ea;
+    border: none;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 50px;
+    color: white;
+    font-family: 微软雅黑;
+    font-size: 1vw;
+    text-decoration: none;
+    margin-top: 15px;
+}
+/* 返回 */
+.retrieve_foot_r{
+    padding: 5%;
+}
+.retrieve_foot_r a{
+    text-decoration: none;
+    font-size: 90%;
+    font-family: 华文中宋;
+    color: #50c6ef;
+}
+.retrieve_foot_r a:nth-of-type(1){
+    float: left;
+}
+.retrieve_foot_r a:nth-of-type(2){
+    float: right;
+}
+
+
+/*错误信息*/
+.erro{
+    color: red;
+    font-size: 80%;
+}
+
+/*第二模块*/
+.newForm_Pass{
+    padding: 5%;
+}
+.newForm_Pass > input{
+    height: 50px;
+    border: 1px solid #f2f2f2;
+    background-color: #f2f2f2;
+    margin-top: 20px;
+    padding-left: 15px;
+    border-radius: 10px;
+    width: 95%;
+}

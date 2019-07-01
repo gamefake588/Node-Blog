@@ -1,0 +1,308 @@
+a{
+    color: #000;
+}
+input{
+    background-color: #fff !important;
+    border: none !important;
+    border-bottom: none !important;
+    border-radius: 0 !important;
+    outline: none !important;   
+    height: auto !important;    
+    width: auto !important;    
+    font-size: 1rem !important;   
+    margin: 0 !important;    
+    padding: 0 !important;    
+    box-shadow: none !important;   
+    box-sizing: content-box !important;
+}
+/* 自订input */
+.h_input{
+    border: 1px solid #e2e0e0 !important;
+    border-radius: 3px !important;
+    width: 100% !important;
+    height: 20px !important;
+    background-color: #f5f5f5 !important;
+    padding: 5px !important;
+    box-sizing: border-box;
+}
+.h_button{
+    background-color: #fff;
+    border:1px solid #999;
+    font-family: Roboto;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: .9rem;
+    transition: all .3s;
+}
+.h_button:focus{
+    background-color: #27ae60;
+    color: #fff;
+    border-color: #27ae60;
+    
+}
+.h_disabled{
+    cursor:not-allowed !important;
+}
+.h_active{
+    background-color: #2ecc71;
+    color: #fff;
+    border-color: #2ecc71;
+}
+.h_code{
+    color: rgb(114, 112, 112);
+    font-family: Roboto;
+    font-size: .8rem;
+}
+.h_submit > button{
+    width: 100%;
+    background-color: #61d183;
+    border: none;
+    padding: 2% 0;
+    border-radius: 10px;
+    color: #fff;
+    font-family: Roboto;
+    transition: all .3s;
+}
+.h_submit > button:hover{
+    background-color: #58c779;
+}
+.active{
+    display: block !important;
+}
+.show{
+    display: none !important;
+}
+
+.h_main{
+    height: 100vh;
+    background-image: url('../../images/reg-bg.jpg');
+    background-size: cover;
+    box-sizing: border-box;
+    padding: 10% 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.h_main_block{
+    width: 480px;
+    height: auto;
+    background-color: rgba(253, 253, 255, 0.9);
+    margin: 0 auto;
+    border-radius: 10px;
+    box-sizing: border-box;
+    padding: 2%;
+}
+
+/* 登陆 */
+.h_login{
+    /* display: none; */
+}
+.h_login_form{
+    
+}
+.login_form_block{
+    display: flex;
+    margin: 15px 0;
+}
+.last{
+    border-bottom: 1px solid #999;
+    padding-bottom: 5%;
+}
+.login_form_prompt{
+    width: 35%;
+}
+.login_form_prompt > a{
+    font-size: .9rem;
+    font-family: Roboto;
+    line-height: 35px;
+}
+
+.login_form_input{
+    width: 65%;
+}
+.login_form_input > a > label{
+    color: #999;
+    letter-spacing: 1px;
+    font-size: .8rem;
+}
+
+/* 切换 按钮 */
+.h_login_title{
+    display: flex;
+    text-align: center;
+    padding: 2% 0;
+}
+.login_title_Z,.login_title_D{
+    width: 50%;
+    color: rgb(172, 172, 172);
+}
+.login_title_Z > span,.login_title_D > span{
+    cursor: pointer;
+    font-family: "Microsoft Yahei","Helvetica Neue";
+}
+
+.login_title_active{
+    color: #76b9f7;
+}
+
+/* login头部 */
+.h_login_top{
+    display: flex;
+}
+.login_pass{
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+    padding-right: 15px;
+}
+.login_pass > button{
+    display: none;
+}
+.login_code{
+    width: 100%;
+    text-align: center;
+    height: 110px;
+    overflow: hidden;
+    box-sizing: border-box;
+    display: none;
+}
+.login_code > .login_form_block{
+    /* display: none; */
+}
+.login_code > button,.login_pass > button{
+    width: 71.3px;
+    height: 100%;
+    background-color: rgb(216, 209, 112);
+    color: #fff;
+    font-family: Roboto;
+    box-sizing: border-box;
+    padding: 0% 37%;
+    border: none;
+
+}
+
+/* code */
+#login_code{
+    /* display: none; */
+}
+#login_code > .login_form_input > .h_input{
+    width: 75% !important;
+    float: left;
+}
+#login_code > .login_form_input > .h_button{
+    float: right;
+}
+
+
+/* login底部 */
+.h_login_footer{
+    margin-top: 15px;
+}
+.Action_buttons{
+    float: left;
+}
+
+.Forgot_password{
+    float: right;
+}
+.Forgot_password > a{
+    color: #666;
+    font-family: Roboto;
+    font-size: .9rem;
+}
+
+/* 注册 */
+.h_register{
+    /* position: absolute;
+    right: -500px; */
+    display: none;
+}
+.h_register > .h_register_form > .login_form_block > .login_form_input > #register_phoneCode{
+    width: 75% !important;
+}
+
+/* 忘记密码 */
+.newPassword{
+    display: none;
+}
+/* 忘记密码 修改密码model */
+.newPassword_dataPass{
+    display: none;
+}
+
+.Please_answer{
+    color: #666;
+    font-size: .9rem;
+}
+
+
+
+
+/*  main - block - footer */
+.h_main_footer{
+    box-sizing: border-box;
+    padding: 6% 0 3% 0;
+}
+.h_main_footer > span, .h_main_footer > p{
+    color: rgb(114, 112, 112);
+    font-family: Roboto;
+    font-size: .9rem;
+}
+.h_main_footer > p{
+    letter-spacing: 1.2px;
+    line-height: 35px;
+}
+
+/* 第三方 */
+.h_main_threeLogin{
+    text-align: center;
+}
+.h_main_threeLogin_main{
+    box-sizing: border-box;
+    padding-top: 15px;
+    text-align: left;
+    font-size: .9rem;
+    color: #999;
+}
+.h_main_threeLogin_main > a{
+    color: #61d183;
+    font-size: 1.5rem;
+}
+
+/*  */
+@media(min-width:1200px){
+    
+    .h_main{
+        padding: 5% 0;
+    }
+
+}
+@media(max-width:480px){
+    
+    .h_main{
+        padding:0;
+        background-image: none;
+        height: 115vh;
+    }
+    .h_main_block{
+        width: 95%;
+        padding-bottom: 5%;
+    }
+    .login_pass > .login_form_block > .login_form_input > .h_input{
+        width: 92% !important;
+    }
+    .login_code > .login_form_block > .login_form_prompt{
+        width: 20%;
+    }
+    .login_code > .login_form_block > .login_form_input{
+        width: 75%;
+    }
+    .h_register > .h_register_form > .login_form_block > .login_form_input > #register_phoneCode{
+        width: 65% !important;
+    }
+
+    .h_main_footer > p{
+        line-height: 25px;
+    }
+    
+}

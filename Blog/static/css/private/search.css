@@ -1,0 +1,13 @@
+
+.aryicle_left{
+    width: 100%;
+    min-height: 800px;
+}
+
+.search_results{
+    height: 50px;
+    line-height: 50px;
+    font-size: 1.2rem;
+    color: black;
+    font-family: 华文中宋;
+}

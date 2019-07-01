@@ -1,0 +1,178 @@
+
+.aryicle_left_title{
+    text-align: center;
+}
+/* .aryicle_left_title img{
+    height: auto;
+    width: auto;
+    max-width: 100%;
+    max-height: 100%;
+} */
+.message{
+    font-size: 2rem;
+}
+.message_o{
+    text-align: left;
+    color: #666;
+    letter-spacing: 1px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.aryicle_left_hr{
+    color: #f6f6f6;
+    margin-top: 3%;
+}
+.reward{
+    margin: 5% auto;
+}
+.reward_a{
+    border: 1px solid #00a2ff;
+    padding: 10px 30px;
+    transition: all .5s;
+}
+.reward_a:hover{
+
+    border:none;
+    background-color: #3496e6;
+    color: white;
+}
+.reward_a,.reward_a i{
+    font-size: 14px;
+}
+/*回复*/
+.home_interactive{
+    clear: both;
+    overflow: hidden;
+    border-bottom: 1px solid #e9e9e9;
+}
+.home_interactive a{
+    float: right;
+}
+.modal-content h6{
+    font-size: 1.1rem;
+    padding-bottom: 2rem;
+}
+/*用户回复显示*/
+.reply_block{
+    padding: 20px 15px 10px 15px;
+    clear: both;
+    overflow: hidden;
+    transition: all .3s;
+    background-color: #f7f7f9;
+    margin: 10px 0 0 10px;
+}
+.reply_block:hover{
+    background-color: #e9e9e9;
+}
+.reply_img{
+    float: left;
+}
+.reply_img img{
+    border-radius: 50%;
+}
+.reply_content{
+    padding-left: 15px;
+    font-size: 88%;
+    float: left;
+}
+.reply_name{
+    color: #00b0ff;
+}
+.time_stamp{
+    padding-top: 3px;
+    font-size: 90%;
+    font-family: "Adobe Garamond Pro";
+    color: #999;
+}
+.aryicle_content_block:hover{
+    background-color: rgba(255,255,255,0);
+}
+.other_users i{
+    opacity: 0;
+    font-size: 1rem;
+    color: #999;
+    transition: all .3s;
+}
+.reply_block:hover i{
+    opacity: 1;
+}
+.reply_blockT{
+    margin:2% 0 2% 10%;
+    clear: both;
+    overflow: hidden;
+}
+
+
+
+
+
+
+.user_img,.user_name{
+    float: left;
+}
+.user_img img{
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+}
+.user_name{
+    padding: 8px;
+}
+.user_name_n{
+    font-family: '黑体';
+    font-weight: 500;
+}
+.user_name_data{
+    font-size: 90%;
+    font-family: 'Times New Roman', Times, serif;
+    color: rgb(181, 187, 187);
+}
+
+.display_content a{
+    font-size: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 3px;
+}
+
+.comment{
+    box-shadow: 5px 0px 5px 5px #f6f6f6;
+    padding: 15px;
+}
+.comment_title{
+    font-size: 1.5rem;
+    font-family: "宋体";
+    padding: 15px 15px 0 15px;
+    font-weight: bold;
+}
+.comment_hugx{
+    padding: 0;
+}
+.comment_textarea{
+    height: auto;
+    border: 1px solid #e2e0e0;
+    resize: vertical;
+    padding: 15px;
+}
+.page_play{}
+.page_play ul,.page_play{
+    clear: both;
+    overflow: hidden;
+    text-align: center;
+}
+.page_play a{
+    float: left;
+}
+.page_play li{
+    float: left;
+    padding: 5px 15px;
+    margin: 5px;
+}
+
+@media(max-width:480px){
+    .aryicle_content_block{
+        padding: 20px 1rem 10px 1.5rem !important;
+    }
+    .page_play li{
+        padding: 0px;
+
+    }
+}

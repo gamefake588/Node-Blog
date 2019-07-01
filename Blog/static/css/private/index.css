@@ -1,0 +1,181 @@
+.top{
+   background-image: url(../../images/bg1-min.jpg);
+   background-size: cover;
+   background-attachment: fixed;
+    height: 100vh;
+}
+
+
+.main{
+    background-color: #f6f6f6;
+    height: 1600px;
+}
+.main_top{
+    width: 100%;
+    padding: 5% 50px;
+    height: auto;
+    clear: both;
+    overflow: hidden;
+}
+.main_top_left{
+    background-color: #fff;
+    height: 600px;
+    width: 50%;
+    float: left;
+    box-shadow: 0 5px 10px -5px rgb(112, 110, 110);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    position: relative;
+    background-image: url(../../images/N4.jpg);
+    background-size: cover;
+    background-position: center;
+}
+.main_title{
+    position: absolute;
+    top: -28px;
+    left: 50%;
+    margin-left: -150px;
+}
+.main_title .start,.main_bottom_title .start,.foot_title .start{
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 0px 10px;
+    border: 3px solid #000;
+    float: left;
+    font-family: '华文楷体';
+}
+.main_title .content{
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 5px;
+    float: left;
+    line-height: 25px;
+    padding-left: 8px;
+}
+.main_introduce{
+    text-align: center;
+    padding: 50% 0;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-top: -20px;
+}
+.main_bottom{
+    padding: 0% 15%;
+    clear: both;
+    overflow: hidden;
+    height: auto;
+}
+.main_bottom_title{
+    float: left;
+}
+.main_bottom_title .content{
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 5px;
+    float: left;
+    line-height: 50px;
+    padding-left: 8px;
+    font-family: 'Courier New', Courier, monospace;
+}
+.main_bottom_b{
+    float: right;
+}
+.main_bottom_b button{
+    border: 1px solid #000;
+    background-color: rgba(255, 255, 255, 0);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding: 5px 30px;
+    border-radius: 5px;
+}
+.main_bottom_b button:hover{
+    border-color: #fff;
+    background-color: #000;
+    color: white;
+    transition: all 1s;
+}
+.img_set{
+    margin: 25px 0;
+}
+.row .col{
+    padding: 0;
+}
+
+
+.main_top_right{
+    background-color: #000;
+    height: 600px;
+    width: 50%;
+    float: left;
+    box-shadow: 0 5px 10px -5px rgb(44, 43, 43);
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-image: url(../../images/N2.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+
+.foot{
+    background-color: black;
+    height: 800px;
+    padding: 30px 15%;
+}
+.foot_title{
+    clear: both;
+    overflow: hidden;
+    height: auto;
+}
+.foot_title .start{
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 0px 10px;
+    border: 3px solid white;
+    float: left;
+    font-family: '华文楷体';
+    color: white;
+}
+.foot_title .content{
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 5px;
+    float: left;
+    line-height: 50px;
+    padding-left: 8px;
+    font-family: 'Courier New', Courier, monospace;
+}
+.foot_Subheading{
+    color: white;
+    padding: 20px 0;
+    line-height: 30px;
+}
+.input-field,.active{
+    color: white !important;
+}
+.input-field input:focus,.input-field textarea:focus{
+    border-bottom: 1px solid #f6f6f6 !important;
+    box-shadow: 0 1px 0 0 #f6f6f6 !important;
+}
+.bog{
+    width: 120px;
+    border: 1px solid white;
+    background-color: rgba(255, 255, 255, 0);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding: 5px 30px;
+    border-radius: 5px;
+    color: white;
+    margin: 15px auto;
+}
+.foot_right{
+    color: white;
+    padding: 10% 15% !important;
+    font-family: 'Times New Roman', Times, serif;
+    letter-spacing: 2px;
+}
+.foot_right img{
+    cursor: pointer;
+}
+.wenzi{}
+.video{
+    display: none;
+}

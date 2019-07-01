@@ -1,0 +1,30 @@
+
+.article_release{
+    text-align: left;
+}
+.article_input{
+    display: flex;
+}
+.article_input select{
+    display: block;
+    width: 15%;
+}
+.article_input input{
+    width: 85%;
+    padding-left: 5px;
+}
+.getTop{
+    margin: 40px 0 20px 0 ;
+}
+.user_main{
+    padding: 8% 0%;
+}
+
+/* 内容 */
+.articleContent{
+    width: 100%;
+    box-sizing: border-box;
+}
+.articleContent > #editor{
+    height: 500px;
+}

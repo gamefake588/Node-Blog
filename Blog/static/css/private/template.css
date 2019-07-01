@@ -1,0 +1,26 @@
+
+.aryicle_content_block{
+    position: relative;
+}
+.display_img{
+    position: absolute;
+    right: 10px;
+    top: 8px;
+}
+.display_img img{
+    width: 150px;
+    height: 90px;
+}
+
+
+@media(max-width:480px){
+
+    .aryicle_left_title ul .right a{
+        padding: 10px 5px;
+        font-size: 90%;
+    }
+    .display_img{
+        display: none;
+    }
+
+}
