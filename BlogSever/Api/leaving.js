@@ -60,7 +60,21 @@ Api.post('/leaving_data', (req, res) => {
             })
         })
         // filter方法遍历留言字典
-        proves.filter(value => {
+        proves.map(value => {
+            // 根据用户ID获取用户头像
+            const select_user = `select ID,username,head_portrait from login_register where ID='${value.user_id}' `
+            conn.query(select_user, (err, user) => {
+                user.map(item => {
+                    if (value.user_id === item.ID) Object.assign(value, item)
+                    // 将数据返回给前端
+                    setTimeout(() => {
+                        res.end(JSON.stringify({
+                            leaving: proves,
+                            reply: replyDist,
+                        }))
+                    }, 10)
+                })
+            })
             // 调用方法
             Get_reply(value.message_id)
                 .then(msg => {
@@ -71,18 +85,10 @@ Api.post('/leaving_data', (req, res) => {
                             leaving: proves,
                             reply: msg,
                         }))
-                    }, 10)
+                    }, 100)
                 })
         })
         // 遍历留言字典 - 结束
-        // 无回复留言在此返回数据
-        // 将数据返回给前端
-        setTimeout(() => {
-            res.end(JSON.stringify({
-                leaving: proves,
-                reply: replyDist,
-            }))
-        }, 10)
     })
 
 })
@@ -122,7 +128,7 @@ Api.post('/leaving', (req, res) => {
                     })
                     // 更新留言表
                     const insert = `insert into leaving values
-                    ('message-${leaving_id}',${user_data[0].ID},'${data.content}','${user_data[0].head_portrait}','${time}','${user_data[0].username}','${IP}') `
+                    ('message-${leaving_id}','${user_data[0].ID}','${data.content}','${user_data[0].head_portrait}','${time}','${user_data[0].username}','${IP}') `
                     conn.query(insert, (err, insert_leaving) => {
                         if (err) {
                             res.end(JSON.stringify({

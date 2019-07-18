@@ -22,9 +22,11 @@ app.all("*", function (req, res, next) {
 const login = require("./Api/login")
 const article = require("./Api/article")
 const leaving = require("./Api/leaving")
+const UserCenter = require("./Api/UserCenter")
 app.use(login)
 app.use(article)
 app.use(leaving)
+app.use(UserCenter)
 
 
 // 默认

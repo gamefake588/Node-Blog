@@ -74,7 +74,8 @@ export default {
     components: {},
     data() {
         return {
-            path: ""
+            path: "",
+            api: this.$store.store.state.api,
         };
     },
     methods: {
@@ -123,7 +124,7 @@ export default {
         // 判断用户保存登陆信息
         if (sessionCode !== null) {
             user_nm.innerHTML = ``;
-            let url = "http://localhost:3000/Api/automatic_login";
+            let url = `${this.api}/Api/automatic_login`;
             let user_type = qs.stringify({
                 id: sessionCode
             });
@@ -139,14 +140,25 @@ export default {
                             }" height="40" class="user_head head_img">
                               <div class="user_s_ul">
                                   <ul>
-                                      <li><a href="/personal/personal_center">个人中心</a><input type="hidden" id="userID" value="${
-                            res.data.ID
-                            }"></li>
+                                      <li>
+                                        <a href="javascript:" class='User_space'>个人中心</a>
+                                    </li>
                                       <li class="logoff"><a href="javascript:">注销用户</a></li>
                                   </ul>
                               </div>
                           </a>
                         `;
+
+                        const User_space = document.querySelector('.User_space')
+                        // 跳转到用户中心
+                        User_space.onclick = () => {
+                            this.$router.push({
+                                path: `/User_space`,
+                                name: "User_space",
+                                query: { user_id: res.data.ID },
+                            })
+                        }
+
                         // 注销用户操作
                         const logoff = document.querySelector(".logoff");
                         logoff.onclick = () => {

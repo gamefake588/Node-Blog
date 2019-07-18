@@ -15,6 +15,7 @@ import articleRelease from './components/article_release'
 import details from './components/Ar_details'
 import leaving from './components/leaving'
 import about from './components/SonFile/about'
+import User_space from './components/User_space'
 
 Vue.use(VueRouter)
 
@@ -26,11 +27,22 @@ Vue.use(VueWechatTitle)
 Vue.config.productionTip = false
 
 //加载插件
-import myLoading from './loading'
+import myLoading from './Plug-in/loading'
 Vue.use(myLoading, {
   icon: require('./assets/paper-plane.png'),
   progressColor: 'blue'
 })
+
+// 用户弹出窗
+// import mypopover from './Plug-in/user-popover'
+// Vue.use(mypopover, {
+//   img: require('./assets/paper-plane.png'),
+//   name: 'blue',
+//   describe: '人非草木 孰能无情',
+//   article: '9',
+//   thumbs: '99',
+//   id: 'http://localhost:8080/User_space?user_id=1',
+// })
 
 
 
@@ -45,6 +57,7 @@ const router = new VueRouter({
     { name: 'details', path: '/details', component: details, meta: { title: 'HuGx | 文章' } },
     { name: 'leaving', path: '/leaving', component: leaving, meta: { title: 'HuGx | 留言' } },
     { name: 'about', path: '/about', component: about, meta: { title: 'HuGx | 关于' } },
+    { name: 'User_space', path: '/User_space', component: User_space, meta: { title: 'HuGx | 用户主页' } },
   ],
   mode: 'history',
 

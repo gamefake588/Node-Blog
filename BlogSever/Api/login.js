@@ -34,6 +34,9 @@ Api.use(cookieParser())
 // 加密功能
 const crypto = require('crypto')
 
+// 时间
+const sd = require('silly-datetime')
+
 // 加密
 const encryption = (data) => {
     const cipher = crypto.createCipher('aes192', "123321");
@@ -49,12 +52,25 @@ const Decrypt = (data) => {
     return decrypted
 }
 
+// 登陆时间 - 方法
+const LoginTime = (id) => {
+    const time = sd.format(new Date(), "YYYY-MM-DD H:m:s")
+    // 修改数据库
+    const update = `update user_center set user_time='${time}' where user_id='${id}' `
+    conn.query(update, (err, msg) => {
+        if (err) {
+            res.end(JSON.stringify({ return_code: '500', return_str: '错误:)', return_err: err }))
+            return
+        }
+    })
+}
+
 // 自动登陆
 Api.post("/Api/automatic_login", (req, res) => {
     res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
 
     let automatic_data = { "email": req.body.id }
-    let sql = `select ID,email,head_portrait from login_register where email='${automatic_data.email}' `
+    let sql = `select ID,username,email,head_portrait from login_register where email='${automatic_data.email}' `
     conn.query(sql, (err, rows) => {
         if (err) throw err
 
@@ -66,6 +82,8 @@ Api.post("/Api/automatic_login", (req, res) => {
                     return_code: "200",
                     return_str: "登陆成功",
                 })
+                // 修改登陆时间
+                LoginTime(rows[0].ID)
                 // 提供数据
                 res.write(JSON.stringify(rows[0]))
                 break;
@@ -108,6 +126,8 @@ Api.post("/Api/login", (req, res) => {
                         return_code: "200",
                         return_str: "登陆成功",
                     })
+                    // 修改登陆时间
+                    LoginTime(rows[0].ID)
                     res.write(JSON.stringify(rows[0]))
                 }
                 else {
@@ -133,7 +153,7 @@ Api.post("/Api/login", (req, res) => {
 
     });
 
-    console.log(login_data)
+    // console.log(login_data)
 
 })
 
@@ -162,6 +182,8 @@ Api.post("/Api/email_login", (req, res) => {
                     return_code: "200",
                     return_str: "登陆成功",
                 })
+                // 修改登陆时间
+                LoginTime(rows[0].ID)
                 res.write(JSON.stringify(rows[0]))
                 res.end()
             }
@@ -201,7 +223,6 @@ Api.post("/Api/register", multipartMiddleware, (req, res) => {
     const IP = requestIp.getClientIp(req)
 
     // 获取当前时间 - (注册时间)
-    const sd = require('silly-datetime')
     const time = sd.format(new Date(), 'YYYY-MM-DD')
 
     // 加密获取 - 邮箱和验证码
@@ -237,10 +258,17 @@ Api.post("/Api/register", multipartMiddleware, (req, res) => {
                     // 写入文件
                     fs.writeFile(data_file, msg, (err) => { if (err) throw err })
                     // 用户ID
-                    const user_id = encryption(`${data.email}`)
+                    const randomString = require('random-string');
+                    // 创建子评论的key
+                    const user_id = randomString({
+                        length: 13,
+                        numeric: true,
+                        letters: true,
+                        special: false,
+                    });
                     // sql语句
                     const sql = `insert into login_register 
-                    values('${user_id}','${name}','${data.pass}','${data.phone}','${data.email}','${db_path}','${IP}','${time}','本地',0,0)`
+                    values('user-${user_id}','${name}','${data.pass}','${data.phone}','${data.email}','${db_path}','${IP}','${time}','本地',0,0)`
                     // 保存到数据库
                     conn.query(sql, (err, rows) => {
                         if (err) throw err

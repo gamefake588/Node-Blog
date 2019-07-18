@@ -1,7 +1,7 @@
 
 /* 作者头像及背景图 -头部*/
 .personal_in_top{
-    height: 38vh;
+    height: 30vh;
     background-image: url("../../images/p2.jpg");
     background-repeat: no-repeat;
     background-size: cover;
@@ -95,6 +95,8 @@
     font-size: 1.5rem;
     color: #666;
     font-family: 华文中宋;
+    border-bottom: 1px solid #e5e5e5;
+    padding-bottom: 15px;
 }
 .essential_information hr{
     color: #f8f8f8;

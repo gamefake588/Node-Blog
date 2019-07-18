@@ -184,6 +184,29 @@ Api.post("/article_user", (req, res) => {
 
 })
 
+// 获取文章数据
+Api.post('/article_data', (req, res) => {
+
+    // 文章ID
+    const Aid = req.body.Aid
+    // 验证是否为空
+    if (Aid === '' || Aid === null) {
+        res.end(JSON.stringify({ return_code: '500', return_str: '文章不存在' }))
+        return
+    }
+    // 访问文章增加访客数
+    const update = `update article set article_browse=article_browse+1 where article_id='${Aid}' `
+    conn.query(update, (err, msg) => { if (err) return })
+    // 查询文章信息
+    const select = `select * from article where article_id='${Aid}' `
+    conn.query(select, (err, data) => {
+        // 返回数据
+        res.end(JSON.stringify({ return_code: '200', return_obj: data[0] }))
+    })
+
+
+})
+
 // 获取文章详情信息
 Api.post("/article_details", (req, res) => {
     // 文章ID
@@ -204,6 +227,7 @@ Api.post("/article_details", (req, res) => {
          * 利用map方法修改原字典
          * 将子评论的信息合并至其父级中
          */
+        let list = []                           // 回复存放点
         let Sonlist = []                        // 子回复存放点
         msg.map((item, index) => {
             // 根据文章ID查找改评论下的子评论
@@ -228,6 +252,14 @@ Api.post("/article_details", (req, res) => {
                     // 返回数组
                     return Sonlist
                 }
+            })
+            // 根据用户ID查找用户信息
+            const select_user = `select ID,username,head_portrait from login_register where ID='${item.article_userid}' `
+            conn.query(select_user, (err, user) => {
+                user.map(UserItem => {
+                    if (item.article_userid === UserItem.ID) Object.assign(item, UserItem)
+                    return item
+                })
             })
         })
         // map方法结束
@@ -393,6 +425,7 @@ Api.post("/FirstLevel_Com", (req, res) => {
 
 // 文章回复评论
 Api.post('/Reply_comment', (req, res) => {
+
     // 数据存放点
     const data = {
         Uid: req.body.user_id,
@@ -468,6 +501,39 @@ Api.post('/Reply_comment', (req, res) => {
                         })
                 })
     }
+
+})
+
+// 弹出框 - 获取用户信息
+Api.post(`/Obtain_UserData`, (req, res) => {
+
+    // 接收参数
+    const Uid = req.body.Uid
+    // 获取用户头像，名称，ID，描述，文章数，点赞数 - 多表查询
+    const select = `select 
+    lr.ID,lr.head_portrait,lr.username,
+    count(ae.article_userid) as article,
+    uc.user_personal_description
+    from 
+    login_register AS lr, user_center AS uc, article AS ae
+    where
+    uc.user_id='${Uid}' and ae.article_userid='${Uid}' and lr.ID='${Uid}'
+     `
+    conn.query(select, (err, msg) => {
+        if (err) {
+            res.end(JSON.stringify({ return_code: '500', return_str: '错误:)', return_err: err }))
+            return
+        }
+        // 查询点赞数
+        const select_count = `select count(article_userid) as thumbs from article_thumbs where article_userid='${Uid}' `
+        conn.query(select_count, (err, count) => {
+            // 合并数据
+            Object.assign(msg[0], count[0])
+            // 获取成功返回数据
+            res.end(JSON.stringify({ return_code: '200', return_obj: msg[0] }))
+        })
+    })
+
 
 })
 

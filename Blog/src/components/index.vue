@@ -67,38 +67,52 @@
                             <div
                                 class="col s12 aryicle_content_block"
                                 v-for="b in Blogger"
-                                @click="OpenArticle(b.article_id)"
+                                :data-key="b.article_id"
                             >
-                                <!-- 块-标题 -->
-                                <div class="block_title clear">
-                                    <ul class="block_title_ul">
-                                        <li class="special_column">专栏</li>
-                                        <li>
-                                            <a>{{ b.article_username }}</a>
-                                        </li>
-                                        <li>{{ b.article_date }}</li>
-                                        <li>
-                                            <a>{{ b.article_label }}</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <!-- 块-显示内容 -->
-                                <div class="display_content">
-                                    <a>{{ b.article_title }}</a>
-                                </div>
-                                <!-- 块-用户交互 -->
-                                <div class="home_interactive">
-                                    <a
-                                        class="waves-effect waves-light btn mybtn"
-                                        ><i class="fa fa-thumbs-up"></i
-                                        >{{ b.article_thumbs }}</a
-                                    >
-                                    <a
-                                        class="waves-effect waves-light btn mybtn"
-                                        ><i class="fa fa-eye"></i
-                                        >{{ b.article_browse }}</a
-                                    >
-                                </div>
+                                <popover
+                                    :popover="popover"
+                                    :skey="b.article_id"
+                                ></popover>
+                                <section @click="OpenArticle(b.article_id)">
+                                    <!-- 块-标题 -->
+                                    <div class="block_title clear">
+                                        <ul class="block_title_ul">
+                                            <li class="special_column">专栏</li>
+                                            <li
+                                                @mouseenter="
+                                                    Get_ThroughInformation(
+                                                        b.article_id,
+                                                        b.article_userid
+                                                    )
+                                                "
+                                                @mouseleave="Open_Information()"
+                                            >
+                                                <a>{{ b.article_username }}</a>
+                                            </li>
+                                            <li>{{ b.article_date }}</li>
+                                            <li>
+                                                <a>{{ b.article_label }}</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!-- 块-显示内容 -->
+                                    <div class="display_content">
+                                        <a>{{ b.article_title }}</a>
+                                    </div>
+                                    <!-- 块-用户交互 -->
+                                    <div class="home_interactive">
+                                        <a
+                                            class="waves-effect waves-light btn mybtn"
+                                            ><i class="fa fa-thumbs-up"></i
+                                            >{{ b.article_thumbs }}</a
+                                        >
+                                        <a
+                                            class="waves-effect waves-light btn mybtn"
+                                            ><i class="fa fa-eye"></i
+                                            >{{ b.article_browse }}</a
+                                        >
+                                    </div>
+                                </section>
                             </div>
                         </div>
                         <!-- 用户 -->
@@ -107,38 +121,51 @@
                             <div
                                 class="col s12 aryicle_content_block"
                                 v-for="u in user"
-                                @click="OpenArticle(u.article_id)"
                             >
-                                <!-- 块-标题 -->
-                                <div class="block_title clear">
-                                    <ul class="block_title_ul">
-                                        <li class="special_column">专栏</li>
-                                        <li>
-                                            <a>{{ u.article_username }}</a>
-                                        </li>
-                                        <li>{{ u.article_date }}</li>
-                                        <li>
-                                            <a>{{ u.article_label }}</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <!-- 块-显示内容 -->
-                                <div class="display_content">
-                                    <a>{{ u.article_title }}</a>
-                                </div>
-                                <!-- 块-用户交互 -->
-                                <div class="home_interactive">
-                                    <a
-                                        class="waves-effect waves-light btn mybtn"
-                                        ><i class="fa fa-thumbs-up"></i
-                                        >{{ u.article_thumbs }}</a
-                                    >
-                                    <a
-                                        class="waves-effect waves-light btn mybtn"
-                                        ><i class="fa fa-eye"></i
-                                        >{{ u.article_browse }}</a
-                                    >
-                                </div>
+                                <popover
+                                    :popover="popover"
+                                    :skey="u.article_id"
+                                ></popover>
+                                <section @click="OpenArticle(u.article_id)">
+                                    <!-- 块-标题 -->
+                                    <div class="block_title clear">
+                                        <ul class="block_title_ul">
+                                            <li class="special_column">专栏</li>
+                                            <li
+                                                @mouseenter="
+                                                    Get_ThroughInformation(
+                                                        u.article_id,
+                                                        u.article_userid
+                                                    )
+                                                "
+                                                @mouseleave="Open_Information()"
+                                            >
+                                                <a>{{ u.article_username }}</a>
+                                            </li>
+                                            <li>{{ u.article_date }}</li>
+                                            <li>
+                                                <a>{{ u.article_label }}</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!-- 块-显示内容 -->
+                                    <div class="display_content">
+                                        <a>{{ u.article_title }}</a>
+                                    </div>
+                                    <!-- 块-用户交互 -->
+                                    <div class="home_interactive">
+                                        <a
+                                            class="waves-effect waves-light btn mybtn"
+                                            ><i class="fa fa-thumbs-up"></i
+                                            >{{ u.article_thumbs }}</a
+                                        >
+                                        <a
+                                            class="waves-effect waves-light btn mybtn"
+                                            ><i class="fa fa-eye"></i
+                                            >{{ u.article_browse }}</a
+                                        >
+                                    </div>
+                                </section>
                             </div>
                         </div>
                     </div>
@@ -158,6 +185,7 @@
 import header_hugx from "./SonFile/header-hugx";
 import footer_hugx from "./SonFile/footer-hugx";
 import right_hugx from "./SonFile/right-hugx";
+import popover from "./SonFile/user-popover";
 import axios from "axios";
 import qs from "qs";
 
@@ -166,7 +194,8 @@ export default {
     components: {
         "header-hugx": header_hugx,
         "footer-hugx": footer_hugx,
-        "right-hugx": right_hugx
+        "right-hugx": right_hugx,
+        "popover": popover,
     },
     data() {
         return {
@@ -178,7 +207,13 @@ export default {
             // 页数
             page: { user: 1, Blogger: 1 },
             // 类型
-            type: ""
+            type: "",
+            // 用户弹出框
+            popover: {
+                show: false,
+                key: '',                                // 钥匙
+                Uid: '',                                // 用户ID
+            }
         };
     },
     methods: {
@@ -227,14 +262,44 @@ export default {
                 if (value.article_id === id) data = value
             })
             this.$router.push({
-                path: `/details`,
+                path: `/details/${data.article_id}`,
                 name: "details",
                 params: data,
                 query: { article_id: data.article_id },
             })
-        }
+        },
+
+        // 鼠标经过显示用户信息
+        Get_ThroughInformation(key, Uid) {
+            // 显示
+            setTimeout(() => {
+                this.popover.show = true
+            }, 300)
+            // 钥匙
+            this.popover.key = key
+            // 用户ID
+            this.popover.Uid = Uid
+        },
+
+        // 鼠标移出关闭弹出框
+        Open_Information() {
+            let popover = document.querySelectorAll('.user-popover')
+            for (let i in popover) {
+                // 隐藏
+                setTimeout(() => {
+                    // 判断是否存在key
+                    if (popover[i].dataset === undefined) return
+                    // key不为空时关闭弹出框
+                    if (popover[i].dataset.key !== '')
+                        this.popover.show = !this.popover.show
+                }, 300)
+            }
+
+        },
+
     },
     mounted() {
+
         // 框架配置
         $(document).ready(function () {
             $(".button-collapse").sideNav();
@@ -285,14 +350,25 @@ export default {
                 bStop = true;
             }, 300);
         };
-    }
+
+    },
+    updated() {
+
+    },
 };
 </script>
 
 
 
 <style scoped>
-@import "../../static/css/private/article.css";
+/* @import "../../static/css/private/article.css"; */
+.aryicle_main {
+    overflow: initial;
+}
+.box {
+    clear: both;
+    overflow: hidden;
+}
 </style>
 
 

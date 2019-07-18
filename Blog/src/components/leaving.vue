@@ -47,14 +47,14 @@
                                         <!-- 头像 -->
                                         <div class="user_img">
                                             <img
-                                                :src="lv.comment_img"
+                                                :src="lv.head_portrait"
                                                 height="40"
                                             />
                                         </div>
                                         <!-- name -->
                                         <div class="user_name">
                                             <span class="user_name_n">
-                                                {{ lv.comment_username }}
+                                                {{ lv.username }}
                                             </span>
                                             <br />
                                             <span class="user_name_data">
@@ -91,6 +91,7 @@
                                                 <img
                                                     :src="ply.user_img"
                                                     height="40"
+                                                    width="40"
                                                 />
                                             </div>
                                             <div class="reply_content">
@@ -321,7 +322,7 @@ export default {
         this.$myLoading.open()
         setTimeout(() => {
             this.$myLoading.hide()
-        }, 500)
+        }, 300)
     },
     mounted() {
 
@@ -341,7 +342,6 @@ export default {
 
 
 <style scoped>
-@import "../../static/css/private/article.css";
 @import "../../static/css/private/leaving.css";
 
 .aryicle_main {

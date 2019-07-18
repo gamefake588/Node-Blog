@@ -155,7 +155,7 @@ export default {
      */
 
     // 接口地址
-    const token = "http://localhost:3000"
+    const token = "http://www.howig.cn:3000"
 
     // 获取cookie
     function getCookie(key) {

@@ -1,21 +1,83 @@
+<!-- 
+  少年仍是少年
+  是万水千山间的无处相逢
+  一别此去经年
+  终难独善其身
+ -->
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="static/images/logo.png" type="image/png">
-    <link rel="stylesheet" type="text/css" href="./static/css/public/materialize.min.css">
-    <link rel="stylesheet" type="text/css" href="./static/css/public/curry.css">
-    <link rel="stylesheet" type="text/css" href="./static/css/public/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="./static/css/private/article.css">
-    <title>mythree</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
 
-    <script src="./static/js/public/jquery-3.3.1.min.js"></script>
-    <script src="./static/js/public/materialize.min.js"></script>
-    <script src="./static/js/public/public.js"></script>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="icon" href="static/images/logo.png" type="image/png">
+  <link rel="stylesheet" type="text/css" href="./static/css/public/materialize.min.css">
+  <link rel="stylesheet" type="text/css" href="./static/css/public/curry.css">
+  <link rel="stylesheet" type="text/css" href="./static/css/public/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="./static/css/private/article.css">
+  <title>mythree</title>
+</head>
+
+<body>
+  <div id="app"></div>
+  <!-- built files will be auto injected -->
+
+  <script src="./static/js/public/jquery-3.3.1.min.js"></script>
+  <script src="./static/js/public/materialize.min.js"></script>
+  <script src="./static/js/public/public.js"></script>
+  <!-- lucky - cat猫咪 -->
+  <script src="./static/js/live2d/L2Dwidget.min.js"></script>
+  <script type="text/javascript">
+
+    /*
+    ** cat function
+    ** pot：距离底部位置
+    ** size：猫咪大小（倍数）
+    */
+    const cat = (pot,size) => {
+        L2Dwidget.init({
+        model: {
+          jsonPath: './static/js/live2d/tororo/assets/tororo.model.json',
+        },
+        display: {
+          superSample: size,
+          width: 150,
+          height: 150,
+          position: 'left',
+          hOffset: 0,
+          vOffset: pot,
+        },
+        mobile: {
+          show: true,
+          scale: 1,
+          motion: true,
+        },
+        react: {
+          opacityDefault: 0.8,
+          opacityOnHover: 0.2,
+        }
+      })
+    }
+    // 初试猫咪
+    cat(250,1.5)
+
+    // 获取页面宽度
+    const width = document.body.scrollWidth
+    // 判断手机端 cat 变小
+    if(width < 400) {
+      cat(0,1)
+    }
+
+    console.log('%c'+`
+    少年仍是少年
+    是万水千山间的无处相逢
+    一别此去经年
+    终难独善其身
+    :) 
+    `, "color:#2196F3")
+
+  </script>
+  <!-- lucky - end -->
+</body>
+
 </html>

@@ -152,6 +152,13 @@ export default {
     "footer-hugx": footer_hugx,
     "right-hugx": right_hugx,
   },
+  // 加载动画UI
+    beforeCreate() {
+        this.$myLoading.open()
+        setTimeout(() => {
+            this.$myLoading.hide()
+        }, 300)
+    },
   mounted() {
       $(document).ready(function () {
         $(".button-collapse").sideNav();

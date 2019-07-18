@@ -159,3 +159,34 @@
     text-align: center;
     line-height: 60px;
 }
+
+/* 鼠标点击 */
+.random-alert {
+    position: absolute;
+    animation: animation-alert 2s infinite;
+    top: 0;
+    color: #fff;
+}
+
+@keyframes animation-alert {
+    0% {opacity: 1;}
+
+    50% {opacity: 0.5; }
+
+    100% {opacity: 0;}
+}
+
+/* 浏览器滚轮 */
+::-webkit-scrollbar {
+    width: 5px;
+}
+::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 1px 1px 0 rgba(0,0,0,.1), inset 0 -1px 0 rgba(0,0,0,.07);
+    background-clip: padding-box;
+    background-color: #1abc9c;
+    min-height: 40px;
+    height: 20vh;
+    padding-top: 100px;
+    border-radius: 6px;
+    /* border-radius: 1vw; */
+}

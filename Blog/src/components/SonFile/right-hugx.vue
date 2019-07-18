@@ -19,8 +19,8 @@
               18岁 天蝎座 男
             </li>
             <li class="blogger_li">
-              <i class="fa fa-location-arrow"></i>
-              海南省琼海市
+              <i class="fa fa-bookmark"></i>
+              人非圣贤 孰能无过
             </li>
           </ul>
         </div>

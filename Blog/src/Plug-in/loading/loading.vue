@@ -18,7 +18,7 @@ export default {
     name: 'loading',
     data() {
         return {
-            icon: require('../assets/logo.png'),
+            icon: require('../../assets/logo.png'),
             show: false,
             text: '加载中...',
             progressColor: '#ff0000',

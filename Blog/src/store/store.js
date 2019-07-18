@@ -14,7 +14,9 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
     state: {
         // 接口地址
-        api: 'http://localhost:3000',
+        api: 'http://www.howig.cn:3000',
+        // 用户头像
+        user_img: '',
     },
 })
 

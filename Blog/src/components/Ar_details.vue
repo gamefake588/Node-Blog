@@ -53,14 +53,14 @@
                                 <!-- 头像 -->
                                 <div class="user_img">
                                     <img
-                                        :src="comm.article_comm_img"
+                                        :src="comm.head_portrait"
                                         height="40"
                                     />
                                 </div>
                                 <!-- name -->
                                 <div class="user_name">
                                     <span class="user_name_n">
-                                        {{ comm.article_comm_username }}
+                                        {{ comm.username }}
                                     </span>
                                     <br />
                                     <span class="user_name_data">
@@ -79,7 +79,7 @@
                                     @mouseover="
                                         Get_DynamicConver(
                                             comm.article_comm_id,
-                                            comm.article_comm_username,
+                                            comm.username,
                                             comm.article_userid
                                         )
                                     "
@@ -238,9 +238,24 @@ export default {
             },
             // 获取用户ID
             Uid: sessionStorage.getItem("user_id"),
+            // 文章ID
+            Aid: this.$route.query.article_id,
         }
     },
     methods: {
+
+        // 获取文章数据
+        Get_ArticleData() {
+            const data = qs.stringify({ Aid: this.Aid })
+            axios
+                .post(`${this.api}/article_data`, data)
+                .then(res => {
+                    // console.log(res.data)
+                    if (res.data.return_code === '500') return
+                    // 获取成功存入自定义列表
+                    this.article = res.data.return_obj
+                })
+        },
 
         // 获取文章详情信息
         Get_ArticleDetails() {
@@ -345,14 +360,14 @@ export default {
         this.$myLoading.open()
         setTimeout(() => {
             this.$myLoading.hide()
-        }, 500)
+        }, 300)
     },
     created() {
 
         // 将获取的文章数据存入自定义对象
-        if (this.$route.params.article_id !== undefined) this.article = this.$route.params
+        // if (this.$route.params.article_id !== undefined) this.article = this.$route.params
         // 保存当前文章数据到localStorage
-        localStorage.setItem(this.article.article_id, JSON.stringify(this.article))
+        // localStorage.setItem(this.article.article_id, JSON.stringify(this.article))
     },
     mounted() {
 
@@ -366,12 +381,18 @@ export default {
          * F5强制刷新保存文章值
          */
         // 获取路由传入文章ID从localStorage中获取保存的信息
-        const id = localStorage.getItem(this.$route.query.article_id)
-        // 将数据放入自定义对象
-        this.article = JSON.parse(id)
+        // const id = this.$route.query.article_id
+        // // 将数据放入自定义对象
+        // this.article = id
+
+        // 获取文章数据
+        this.Get_ArticleData()
 
         // 获取文章详情信息
-        this.Get_ArticleDetails()
+        setTimeout(() => {
+            this.Get_ArticleDetails()
+        }, 500)
+
 
     },
 };
